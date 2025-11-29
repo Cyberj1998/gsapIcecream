@@ -19,8 +19,6 @@ const Main = () => {
 
   useEffect(() => {
     
-    if (!videoRef.current) return;
-    
     const paragraphSplit = new SplitText('#subtitle', {type: 'lines'})
     const textSplit = new SplitText('#title', {type: 'chars, words'})
 
@@ -41,18 +39,26 @@ const Main = () => {
       delay: 1
     })
 
-    gsap.from('#button',{
-      opacity: 0,
-      yPercent: 50,
-      duration: 1.8,
-      ease: 'expo.out',
-      delay: 1
-    })
-
     gsap.to("#ice", { x: '30rem', y: '12rem', ease: "back.out(1.7)", duration: 1.5, rotate: 160 })
     gsap.to("#ice2", { x: '-30rem', y: '-15rem', ease: "back.out(1.7)", duration: 1.9, rotate: 100 })
     gsap.to("#ice3", { x: '20rem', y: '-13rem', ease: "back.out(1.7)", duration: 1.2, rotate: 50 })
     gsap.to("#ice4", { x: '-20rem', y: '10rem', ease: "back.out(1.7)", duration: 1, rotate: 20 })
+
+
+    const tl = gsap.timeline({
+      ScrollTrigger: {
+        trigger: '#herosection',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 'true',
+      }
+    })
+
+    videoRef.current.onloadedmetadata = () => {
+      tl.to(videoRef.current, {
+        currentTime: videoRef.current.duration
+      })
+    }
 
   }, []);
 
@@ -66,7 +72,7 @@ const Main = () => {
           <div className='w-full' >
             <p id='subtitle' className='w-[55%] font-sans text-[15px] max-md:text-[12px] text-left m-2 ml-5 max-md:absolute max-md:top-0 left-0 max-md:mt-45'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda at delectus, nemo autem, illo perferendis.</p>
             <Button
-              id='button' 
+              id='button'
               name='Empezar'
               className='cursor-pointer max-md:absolute max-md:top-0 max-md:left-0 max-md:mt-70'
               image={Arrow}
@@ -108,11 +114,9 @@ const Main = () => {
         <video 
           ref={videoRef}
           src={video}           
-          className='z-10 fixed h-screen bg-cover'  
-          muted
-          loop
+          className='z-10 fixed h-screen bg-cover'
+          preload='auto'
           playsInline
-          onPlay={true}
         />
       </div>
       {/*-------------divicion de las dos secciones----------------*/}
