@@ -18,7 +18,7 @@ const Main = () => {
   
 
   useEffect(() => {
-    
+    const video = videoRef.current;
     const paragraphSplit = new SplitText('#subtitle', {type: 'lines'})
     const textSplit = new SplitText('#title', {type: 'chars, words'})
 
@@ -46,11 +46,11 @@ const Main = () => {
 
 
     const tl = gsap.timeline({
-      ScrollTrigger: {
-        trigger: '#herosection',
+      scrollTrigger: {
+        trigger: 'scrollanimation',
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 'true',
+        scrub: true,
       }
     })
 
@@ -65,12 +65,12 @@ const Main = () => {
 
   return (
     <>
-      <div id='herosection' className='m-0 z-20 border-2 border-red-400  h-screen w-full flex flex-col justify-center items-center overflow-hidden'>
+      <div className='scrollanimation m-0 z-20 border-2 border-red-400  h-screen w-full flex flex-col justify-center items-center overflow-hidden'>
         <div className='m-0 bg-[#3d3d3d55] h-screen w-full z-30 flex flex-col justify-center items-center overflow-hidden'>
-          <h3 id='title' className='z-20 text-[160px] max-md:text-[70px] font-bold font-sans text-[#75ddf7] absolute top-0 left-0 m-5 max-md:mt-20 max-sm:text-[60px]'>Heladeria</h3>
+          <h3 id='title' className='font-MyFont z-20 text-[160px] max-md:text-[70px] font-bold font-sans text-[#75ddf7] absolute top-0 left-0 m-5 max-md:mt-20 max-sm:text-[60px]'>Heladeria</h3>
           <h3 id='title' className='z-20 text-[160px] max-md:text-[70px] font-bold font-sans text-[#75ddf7] absolute bottom-0 right-0 m-5 max-md:mb-20'>Gelato</h3>
           <div className='w-full' >
-            <p id='subtitle' className='w-[55%] font-sans text-[15px] max-md:text-[12px] text-left m-2 ml-5 max-md:absolute max-md:top-0 left-0 max-md:mt-45'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda at delectus, nemo autem, illo perferendis.</p>
+            <p id='subtitle' className='w-[55%] font-sans text-[15px] max-md:text-[12px] text-left m-2 ml-5 max-md:absolute max-md:top-0 left-0 max-md:mt-45 text-[#343434]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda at delectus, nemo autem, illo perferendis.</p>
             <Button
               id='button'
               name='Empezar'

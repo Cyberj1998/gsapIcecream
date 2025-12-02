@@ -26,11 +26,12 @@ const Navbar = () => {
         alt="logo" 
         className="h-15 w-15 m-10"
       />
-      <Link to='/cart' className="text-white">
+      <Link to='/cart' className="text-white flex flex-col justify-center items-center border-2 border-red-400 w-fit mr-[50px] object-contain">
+        <p className="text-[#392eff] font-bold text-[25px] absolute top-0 right-0">10</p>
         <img 
           src={CartIcon} 
           alt="cartIcon"
-          className="h-9 w-9 mr-10" 
+          className="h-9 w-9" 
         />
       </Link>
     </div>
