@@ -1,11 +1,44 @@
-
+import CartCard from "./CartCard"
+import Button from "./Button"
+import CartIcon from '../assets/Cart.png'
 
 const Cart = () => {
+
+
+  const array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+
   return (
-    <div className='border-2 border-blue-500 h-screen w-full'>
-      <p>
-        this is the cart component
-      </p>
+    <div className='bg-[#3d3d3d91] h-screen w-full flex flex-col justify-start items-center p-2'>
+      {/*-------- products in the cart --------*/}
+      <div className="border border-white h-[50%] w-[90%] rounded-2xl m-2 overflow-y-scroll p-2">
+        {array.map((component, index)=>(
+          <CartCard 
+           key={index}
+          />
+        ))}
+      </div>
+      {/*--------order resume--------*/}
+      <div className="border border-white h-[50%] max-md:h-[30%] w-[90%] rounded-2xl m-2 flex flex-col justify-center items-center">
+        <h2 className="text-black font-sans font-semibold text-[35px] max-md:text-[20px] p-2 w-full">Resumen de Pago</h2>
+        <div className="flex flex-row justify-between items-center w-full">
+          <p className="font-sans text-[25px] max-md:text-[20px] m-2">total a pagar:</p>
+          <p className="font-semibold text-[25px] max-md:text-[20px] m-2">$: 500</p>
+        </div>
+        <div className="flex flex-row justify-between items-center w-full">
+          <p className="font-sans text-[25px] max-md:text-[20px] m-2">total a pagar:</p>
+          <p className="font-semibold text-[25px] max-md:text-[20px] m-2">$: 500</p>
+        </div>
+        <div className="border border-white w-[90%] h-px" />
+        <div className="flex flex-row justify-between items-center w-full">
+          <p className="font-sans text-[25px] max-md:text-[20px] m-2">total a pagar:</p>
+          <p className="font-semibold text-[25px] max-md:text-[20px] m-2">$: 500</p>
+        </div>
+      </div>
+      <Button 
+        className="max-sm:w-[90%] h-[65px]" 
+        name='Order'
+        image={CartIcon}
+      />
     </div>
   )
 }

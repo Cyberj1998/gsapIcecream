@@ -21,7 +21,7 @@ const Button = (props) => {
     <button
       id={props.id}
       onClick={()=>handleStart()} 
-      className={` ${props.id ? 'opacity-0' : '' } bg-linear-to-r from-[#1353f3] to-[#87f8d8] w-[150px] h-10 rounded-2xl cursor-pointer text-white font-bold text-[15px] m-5 flex flex-row justify-center items-center ${props.className}`}
+      className={` ${props.id ? 'opacity-0' : '' } bg-linear-to-r from-[#1353f3] to-[#87f8d8] ${props.className.includes('max-md:w-[90%]') ? 'w-[90%]' : 'w-[150px]' } h-10 rounded-2xl cursor-pointer text-white font-bold text-[15px] m-5 flex flex-row justify-center items-center ${props.className}`}
     >
       {props.name}
       {props.image ? (
@@ -34,5 +34,7 @@ const Button = (props) => {
     </button>
   )
 }
+
+
 
 export default Button
