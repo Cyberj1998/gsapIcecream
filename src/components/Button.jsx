@@ -4,10 +4,6 @@ import { useEffect } from 'react'
 
 const Button = (props) => {
 
-  const handleStart = () => {
-    console.log('hola')
-  }
-
   useEffect(()=>{
     gsap.to('#button',{
       opacity: 1,
@@ -20,7 +16,7 @@ const Button = (props) => {
   return (
     <button
       id={props.id}
-      onClick={()=>handleStart()} 
+      onClick={props.onClick} 
       className={` ${props.id ? 'opacity-0' : '' } bg-linear-to-r from-[#1353f3] to-[#87f8d8] ${props.className.includes('max-md:w-[90%]') ? 'w-[90%]' : 'w-[150px]' } h-10 rounded-2xl cursor-pointer text-white font-bold text-[15px] m-5 flex flex-row justify-center items-center ${props.className}`}
     >
       {props.name}

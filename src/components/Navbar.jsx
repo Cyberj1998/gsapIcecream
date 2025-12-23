@@ -3,7 +3,13 @@ import { Link } from "react-router-dom"
 import NavLogo from '../assets/logo.png'
 import CartIcon from '../assets/cart.png'
 
+//-------------zustand iports
+import useCartStore from '../store/CartSlice';
+
+
 const Navbar = () => {
+
+  const totalQuantity = useCartStore(state => state.getTotalQuantity());
 
   const[hasScrolled, setHasScrolled]=useState(false)
 
@@ -34,7 +40,7 @@ const Navbar = () => {
           alt="cartIcon"
           className={`${hasScrolled ? 'h-[26px] w-[26px]' : 'h-9 w-9'} transition-all duration-700`} 
         />
-        <p className={`text-black font-bold ${hasScrolled ? 'text-[20px]' : 'text-[25px]'} transition-all duration-700`}>10</p>
+        <p className={`text-black font-bold ${hasScrolled ? 'text-[20px]' : 'text-[25px]'} transition-all duration-700`}>{totalQuantity}</p>
       </Link>
     </div>
   )

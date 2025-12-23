@@ -2,18 +2,21 @@ import CartCard from "./CartCard"
 import Button from "./Button"
 import CartIcon from '../assets/Cart.png'
 
+//-------------zustand iports
+import useCartStore from '../store/CartSlice';
+
 const Cart = () => {
 
-
-  const array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+  const cart = useCartStore(state => state.cart)
 
   return (
     <div className='bg-[#3d3d3d91] h-screen w-full flex flex-col justify-start items-center p-2'>
       {/*-------- products in the cart --------*/}
-      <div className="border border-white h-[50%] w-[90%] rounded-2xl m-2 overflow-y-scroll p-2">
-        {array.map((component, index)=>(
+      <div className="border border-white h-[50%] w-[90%] rounded-2xl m-2 overflow-y-scroll overflow-x-hidden flex flex-col justify-start items-center p-2">
+        {cart.map((product, index)=>(
           <CartCard 
            key={index}
+           product={product}
           />
         ))}
       </div>

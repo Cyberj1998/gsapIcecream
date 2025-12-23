@@ -2,7 +2,13 @@ import { Link } from "react-router-dom"
 import NavLogo from '../assets/logo.png'
 import CartIcon from '../assets/cart.png'
 
+//-------------zustand iports
+import useCartStore from '../store/CartSlice';
+
 const NavbarCart = () => {
+
+  const totalQuantity = useCartStore(state => state.getTotalQuantity());
+
   return (
     <div className="bg-[#3d3d3dab] h-10 flex flex-row justify-between items-center">
       <Link to='/'>
@@ -19,7 +25,7 @@ const NavbarCart = () => {
           alt="cartIcon"
           className='h-9 w-9' 
         />
-        <p className='text-black font-bold text-[25px]'>10</p>
+        <p className='text-black font-bold text-[25px]'>{totalQuantity}</p>
       </div>
     </div>
   )

@@ -7,10 +7,17 @@ import IceIcon from '../assets/ice.png'
 import StrawberryIcon1 from '../assets/strawberry-1.png'
 import Waffle1 from '../assets/waffle-1.png'
 
+//-------------zustand iports
+import useCartStore from '../store/CartSlice';
+
 const ProductCard = ({ product, productType }) => {
+
+  const addToCart = useCartStore(state => state.addToCart)
+  const cart = useCartStore(state => state.cart)
   
-  const handleAddToCart = () => {
-    console.log('handle add to cart')
+  const handleAddToCart = (product) => {
+    addToCart(product)
+    console.log(cart)
   }
 
   return (
