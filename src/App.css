@@ -13,3 +13,35 @@
 .font-myfont {
   font-family: 'MyFont', sans-serif;
 }
+
+
+/* Минималистичный скроллбар для Webkit */
+.scrollbar-minimal::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+}
+
+.scrollbar-minimal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-minimal::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.3);
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.scrollbar-minimal::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.6);
+}
+
+/* Firefox */
+.scrollbar-minimal {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100,100,100,0.3) transparent;
+}
+
+.scrollbar-minimal:hover {
+  scrollbar-color: rgba(100,100,100,0.6) transparent;
+}

@@ -13,7 +13,7 @@ const CartCard = ({ product }) => {
   const remove = useCartStore(state => state.removeFromCart)
 
   return (
-    <div className="border border-white h-[150px] w-[90%] rounded-2xl m-2  relative flex flex-row justify-between items-center">
+    <div className="border border-white bg-[#dec383] h-[150px] w-[90%] rounded-2xl m-2  relative flex flex-row justify-between items-center">
       <div className='flex flex-col justify-center items-center h-[120px] w-[120px]'>
         <img 
           src={product.image} 
@@ -54,7 +54,7 @@ const CartCard = ({ product }) => {
 
         <div id='total-price-container' className='h-[150px] max-md:h-[50%] w-[20%] max-md:w-full flex flex-row justify-around items-center'>
           <h3 className='text-[25px] font-sans font-semibold'>
-            $: {product.price}
+            $: {(product.price * product.quantity).toFixed(2)}
           </h3>
           <button
             onClick={()=>remove(product.id)}

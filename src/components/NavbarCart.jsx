@@ -10,7 +10,7 @@ const NavbarCart = () => {
   const totalQuantity = useCartStore(state => state.getTotalQuantity());
 
   return (
-    <div className="bg-[#3d3d3dab] h-10 flex flex-row justify-between items-center">
+    <div className="bg-[#e9cc88] h-10 flex flex-row justify-between items-center">
       <Link to='/'>
         <img 
           src={NavLogo} 
